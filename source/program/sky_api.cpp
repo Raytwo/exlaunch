@@ -11,3 +11,8 @@ extern "C" uintptr_t sky_Hook(uintptr_t hook, uintptr_t callback, bool do_trampo
 extern "C" void sky_InlineHook(uintptr_t hook, uintptr_t callback) {
     return exl::hook::nx64::HookInline(hook, callback);
 }
+
+extern "C" void sky_Memcpy(uintptr_t dest, uintptr_t src, size_t n) {
+    exl::util::RwPages page(dest, n);
+    std::memcpy((void*)page.GetRw(), &src, n);
+}
