@@ -14,6 +14,6 @@ extern "C" void sky_InlineHook(uintptr_t hook, uintptr_t callback) {
 
 extern "C" Result sky_Memcpy(uintptr_t dest, uintptr_t src, size_t n) {
     exl::util::RwPages page(dest, n);
-    std::memcpy((void*)page.GetRw(), &src, n);
+    std::memcpy((void*)page.GetRw(), (void*)src, n);
     return 0;
 }
