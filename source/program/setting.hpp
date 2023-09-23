@@ -20,7 +20,7 @@ namespace exl::setting {
     constexpr size_t JitSize = 0x4000;
 
     /* How large the area will be inline hook pool. */
-    constexpr size_t InlinePoolSize = 0x2000;
+    constexpr size_t InlinePoolSize = 0x4000;
 
     /* Sanity checks. */
     static_assert(ALIGN_UP(JitSize, PAGE_SIZE) == JitSize, "");
